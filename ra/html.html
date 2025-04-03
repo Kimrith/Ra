@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            color: white;
+            background-color: black;
+        }
+
+        img {
+            width: 20%;
+        }
+
+        div.img {
+            text-align: center;
+            margin-top: 20vh;
+        }
+
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            margin-top: 28px;
+            margin: 20px;
+        }
+    </style>
+
+    <div class="img">
+        <img src="./cry.gif" alt=""> <br>
+
+        <button id="btnyes" style="background-color: green;">Yes</button>
+        <button id="btnno">No</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let btnyes = document.getElementById('btnyes');
+        let btnno = document.getElementById('btnno');
+        let click = 0;
+
+        btnyes.addEventListener('click', function () {
+            Swal.fire({
+                title: "Cute mes🙄",
+                imageUrl: "cute.gif",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "Custom image",
+                showConfirmButton: false
+            });
+            let audio = new Audio('cute.mp3');
+            audio.play();
+        });
+
+        btnno.addEventListener('click', function () {
+            click++;
+
+            if (click === 1) {
+                btnno.style.width = "100px";
+                btnno.style.height = "100px";
+            }
+            if (click === 2) {
+                btnno.style.width = "200px";
+                btnno.style.height = "200px";
+            }
+            if (click === 3) {
+                btnno.style.width = "300px";
+                btnno.style.height = "300px";
+            }
+            if (click === 4) {
+                Swal.fire({
+                    title: "😭",
+                    text: "Joch Sa Tmey Ra...",
+                    imageUrl: "./try.gif",
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: "Custom image"
+                }).then(() => {
+                    location.reload();
+                });
+                let audi = new Audio('cry.mp3');
+                audi.play();
+            }
+
+        });
+    </script>
+</body>
+
+</html>
